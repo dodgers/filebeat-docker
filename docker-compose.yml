@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  filebeat:
+    container_name: filebeat
+    image: gnulux/filebeat 
+    build:
+      context: ./
+    volumes:
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+    deploy:
+      mode: global
+    networks:
+      - elk
